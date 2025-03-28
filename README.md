@@ -63,7 +63,7 @@ go run apk_signature_checksum.go path/to/app-release.apk
 You will get a clean, valid checksum like this:
 
 ```
-✔️ Checksum final for PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:
+✔️ Final checksum for PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:
 GQfdGZbRF9hzPKYzJB0y6xgSrplOWAK-W0KL0r4Ud0v
 ```
 
@@ -79,12 +79,17 @@ This is safe to use in your provisioning QR JSON like:
 
 ## 🧠 What makes this tool special?
 
-Android expects a very specific encoding:
-- SHA-256 of the **certificate** (not the APK file)
-- Encoded as **base64url**
+Android expects a **very specific encoding**:
+
+- SHA-256 of the **certificate** (not the APK itself)
+- Encoded as **base64url** (not standard base64)
 - **No padding** (`=` must be removed)
 
-Failing to meet this format results in **silent provisioning failure** with the dreaded `Can't set up device` message — with **no logs or hints**.
+Failing to meet this exact format results in **silent provisioning failure** with the dreaded and vague error:
+
+> `"Can't set up device. Contact your IT admin for help."`
+
+You will get **no logs, no stacktrace, and no explanation**.
 
 ---
 
@@ -95,6 +100,17 @@ PRs, issues, or usage reports are welcome!
 
 ---
 
-With love, Atlashour
+With ❤️ by **[Atlashour](https://github.com/atlashour)**  
+✨ Special thanks to **ChatGPT-4o** — extremely supportive and accurate.
 
-Special help of ChatGPT 4o
+---
+
+### 🔍 Keywords for searchability (SEO)
+
+- Android COSU provisioning tool
+- PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM
+- Can't set up device Contact your IT admin for help
+- Android base64url signature hash
+- Silent provisioning failure
+- COSU QR code Android 13 / 14 / 15
+```
