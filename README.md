@@ -37,18 +37,6 @@ Or run it explicitly from that folder if needed.
 
 ## 🚀 How to use
 
-### Option 1: Using PowerShell (Windows)
-
-Use the provided `apk_signature_checksum.ps1` script:
-
-```powershell
-.\apk_signature_checksum.ps1 -ApkPath "C:\path\to\your\app-release.apk"
-```
-
-### Option 2: Using Go (Cross-platform)
-
-Use the Go version:
-
 ```bash
 go run apk_signature_checksum.go path/to/app-release.apk
 ```
